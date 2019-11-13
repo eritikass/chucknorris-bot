@@ -1,6 +1,8 @@
 import requests
 import time
+import os
 
+SLACK_URL=os.environ['SLACK_URL']
 
 def get_chucknorris_joke(category=""):
     url = "https://api.chucknorris.io/jokes/random"
@@ -55,9 +57,11 @@ def send_joke(joke):
 
 
 
-    requests.post('xxxx', json=data)
+    requests.post(SLACK_URL, json=data)
 
-jk=get_chucknorris_joke('')
+
+
+jk=get_chucknorris_joke('food')
 print(jk['value'])
 print(jk['categories'][0])
 send_joke(jk)
