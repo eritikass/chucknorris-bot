@@ -14,16 +14,23 @@ def get_chucknorris_joke(category=""):
 
 
 def send_joke(joke):
-    # fields = []
-    # for categorie in joke["categories"]:
-    #     print(categorie)
-    #     fields.append(
-    #         {
-    #             "title": "Category",
-    #             "value": categorie,
-    #             "short": True
-    #         },
-    #     )
+    fields = []
+    for categorie in joke["categories"]:
+         print(categorie)
+         fields.append(
+             {
+                 "title": "Category",
+                 "value": categorie,
+                 "short": False
+             },
+         )
+    fields.append(
+        {
+            "title": "Joke itself",
+            "value": joke['value'],
+            "short": True
+        }
+    )
     data = {
         "attachments": [
             {
@@ -35,18 +42,22 @@ def send_joke(joke):
                 "title": "It's this time of the day",
                 "title_link": "https://chuck-norris-jokes.com",
                 "text": "Prepare your `pants` lads",
-                "fields": [
-                    {
-                        "title": "Joke category",
-                        "value": joke['categories'][0],
-                        "short": False
-                    },
-                    {
-                        "title": "Joke itself",
-                        "value": joke['value'],
-                        "short": True
-                    }
-                ],
+                "fields":fields,
+
+
+
+                #"fields": [
+                    #{
+                        #"title": "Joke category",
+                        #"value": joke['categories'][0],
+                        #"short": False
+                    #},
+                    #{
+                        #"title": "Joke itself",
+                        #"value": joke['value'],
+                        #"short": True
+                    #}
+                #],
                 "thumb_url": "https://images02.military.com/sites/default/files/styles/full/public/media/veteran-jobs/content-images/2016/03/chucknorris.jpg?itok=_J3M4O-S",
                 "footer": "norris",
                 "footer_icon": "http://www.8bit-ninja.de/versinator/images/8bit_chuck_norris_l.gif",
@@ -61,7 +72,7 @@ def send_joke(joke):
 
 
 
-jk=get_chucknorris_joke('food')
+jk=get_chucknorris_joke()
 print(jk['value'])
-print(jk['categories'][0])
+#print(jk['categories'][0])
 send_joke(jk)
