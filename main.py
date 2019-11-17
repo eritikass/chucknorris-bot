@@ -15,10 +15,15 @@ pictures = [
             "https://images.fineartamerica.com/images-medium-large/chuck-norris-i-counted-to-infinity-twice-yvan-goudard.jpg"
             ]
 
-def get_chucknorris_joke(category=""):
+
+def get_chucknorris_joke():
     url = "https://api.chucknorris.io/jokes/random"
-    if category != "":
-        url = url + "?category=" + category
+    category_url = "https://api.chucknorris.io/jokes/categories"
+    response = requests.get(category_url)
+    category_list = response.json()
+    category = random.choice(category_list)
+    # if category != "":
+    url = url + "?category=" + category
     response = requests.get(url)
     data = response.json()
     return data
@@ -84,7 +89,7 @@ def send_joke(joke):
 
 
 
-jk=get_chucknorris_joke('history')
+jk=get_chucknorris_joke()
 print(jk['value'])
 print(random.choice(pictures))
 #print(jk['categories'][0])
