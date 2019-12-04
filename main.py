@@ -48,7 +48,7 @@ def send_joke(joke):
          print(categorie)
          fields.append(
              {
-                 "title": "Category",
+                 "title": "Today's category",
                  "value": categorie,
                  "short": False
              },
@@ -71,9 +71,9 @@ def send_joke(joke):
             {
                 "mrkdwn_in": ["text"],
                 "color": "#ffc0cb",
-                "author_name": "Chuck Bot",
-                "author_link": "https://chucknorris.com/",
-                "author_icon": "https://cdn.dribbble.com/users/382712/screenshots/4165164/chuck_norris.png",
+                #"author_name": "Chuck Bot",
+                #"author_link": "https://chucknorris.com/",
+                #"author_icon": "https://cdn.dribbble.com/users/382712/screenshots/4165164/chuck_norris.png",
             
                
                 "fields":fields,
