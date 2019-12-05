@@ -7,7 +7,7 @@ SLACK_URL=os.environ['SLACK_URL']
 
 SLACK_CHANNEL = "#code_testing"
 
-if SLACK_CHANNEL in os.environ:
+if "SLACK_CHANNEL" in os.environ:
     SLACK_CHANNEL = os.environ['SLACK_CHANNEL']
 
 print (SLACK_CHANNEL)
